@@ -27,6 +27,12 @@
       background: radial-gradient(circle at right, #2a0015, var(--bg));
       color: var(--text);
       min-height: 100vh;
+      animation: pageFade 1.2s ease;
+    }
+
+    @keyframes pageFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* NAVBAR */
@@ -35,6 +41,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 25px 80px;
+      animation: slideDown 1s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .logo {
@@ -45,6 +57,7 @@
 
     .logo span {
       color: var(--neon);
+      animation: neonPulse 2s infinite alternate;
     }
 
     nav {
@@ -58,27 +71,27 @@
       margin-left: 30px;
       font-size: 14px;
       opacity: 0.8;
-      position: relative;
+      transition: 0.3s;
     }
 
-    nav a.active,
     nav a:hover {
       opacity: 1;
       color: var(--neon);
+      text-shadow: 0 0 10px var(--neon);
     }
 
-    /* Instagram Icon */
+    /* Instagram */
     .instagram-link img {
       width: 20px;
       height: 20px;
       margin-left: 30px;
-      filter: drop-shadow(0 0 6px var(--neon));
-      transition: 0.3s;
+      filter: drop-shadow(0 0 8px var(--neon));
+      transition: 0.4s;
     }
 
     .instagram-link img:hover {
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 14px var(--neon));
+      transform: rotate(10deg) scale(1.3);
+      filter: drop-shadow(0 0 16px var(--neon));
     }
 
     /* HERO */
@@ -92,6 +105,12 @@
 
     .hero-text {
       max-width: 600px;
+      animation: slideLeft 1.2s ease;
+    }
+
+    @keyframes slideLeft {
+      from { transform: translateX(-60px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
 
     .hero-text h1 {
@@ -103,6 +122,12 @@
 
     .hero-text h1 span {
       color: var(--neon);
+      animation: neonPulse 1.5s infinite alternate;
+    }
+
+    @keyframes neonPulse {
+      from { text-shadow: 0 0 10px var(--neon); }
+      to { text-shadow: 0 0 25px var(--neon); }
     }
 
     .hero-text h3 {
@@ -133,7 +158,7 @@
       border: 1px solid var(--neon);
       background: transparent;
       color: var(--neon);
-      transition: 0.3s;
+      transition: 0.4s;
     }
 
     .btn.primary {
@@ -143,8 +168,8 @@
     }
 
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(255, 0, 79, 0.8);
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 0, 79, 1);
     }
 
     /* IMAGE */
@@ -158,6 +183,13 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 0 60px rgba(255, 0, 79, 0.8);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
     }
 
     .hero-image img {
@@ -191,28 +223,22 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <header>
     <div class="logo">PORT<span>FOLIO</span></div>
     <nav>
       <a href="#">Home</a>
-      <a href="#" class="active">Projects</a>
+      <a href="#">Projects</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
 
-      <!-- Instagram -->
-      <a 
-        href="https://www.instagram.com/salespagedeveloper?igsh=YW1xa3FpajIxazhi" 
-        target="_blank" 
-        class="instagram-link"
-        aria-label="Instagram"
-      >
+      <a href="https://www.instagram.com/salespagedeveloper?igsh=YW1xa3FpajIxazhi" 
+         target="_blank" 
+         class="instagram-link">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
       <h1>CODE THE FUTURE<br><span>WITH NEON</span></h1>
