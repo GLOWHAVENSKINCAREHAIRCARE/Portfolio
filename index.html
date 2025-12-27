@@ -47,6 +47,11 @@
       color: var(--neon);
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       color: var(--text);
       text-decoration: none;
@@ -60,6 +65,20 @@
     nav a:hover {
       opacity: 1;
       color: var(--neon);
+    }
+
+    /* Instagram Icon */
+    .instagram-link img {
+      width: 20px;
+      height: 20px;
+      margin-left: 30px;
+      filter: drop-shadow(0 0 6px var(--neon));
+      transition: 0.3s;
+    }
+
+    .instagram-link img:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 14px var(--neon));
     }
 
     /* HERO */
@@ -162,6 +181,11 @@
       .buttons {
         justify-content: center;
       }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -175,6 +199,16 @@
       <a href="#" class="active">Projects</a>
       <a href="#">About</a>
       <a href="#">Contact</a>
+
+      <!-- Instagram -->
+      <a 
+        href="https://www.instagram.com/salespagedeveloper?igsh=YW1xa3FpajIxazhi" 
+        target="_blank" 
+        class="instagram-link"
+        aria-label="Instagram"
+      >
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
     </nav>
   </header>
 
@@ -195,7 +229,6 @@
     </div>
 
     <div class="hero-image">
-      <!-- Replace image.jpg with your own image -->
       <img src="https://images.unsplash.com/photo-1614289371518-722f2615943d" alt="Profile">
     </div>
   </section>
