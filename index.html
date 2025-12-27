@@ -1,263 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neon Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Neon Portfolio</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #050507;
-      --neon: #ff004f;
-      --text: #ffffff;
-      --muted: #b3b3b3;
-    }
+<style>
+:root {
+  --bg: #050507;
+  --neon: #ff004f;
+  --text: #ffffff;
+  --muted: #b3b3b3;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at right, #2a0015, var(--bg));
-      color: var(--text);
-      min-height: 100vh;
-      animation: pageFade 1.2s ease;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    @keyframes pageFade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+/* 🌌 MOVING BACKGROUND */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
 
-    /* NAVBAR */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 25px 80px;
-      animation: slideDown 1s ease;
-    }
+.blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,0,79,0.6), transparent 70%);
+  filter: blur(80px);
+  animation: floatBlob 20s infinite alternate ease-in-out;
+}
 
-    @keyframes slideDown {
-      from { transform: translateY(-40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+.blob:nth-child(1) {
+  top: -100px;
+  left: -100px;
+}
 
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 24px;
-      letter-spacing: 2px;
-    }
+.blob:nth-child(2) {
+  bottom: -150px;
+  right: -150px;
+  animation-duration: 25s;
+}
 
-    .logo span {
-      color: var(--neon);
-      animation: neonPulse 2s infinite alternate;
-    }
+.blob:nth-child(3) {
+  top: 30%;
+  right: -200px;
+  animation-duration: 30s;
+}
 
-    nav {
-      display: flex;
-      align-items: center;
-    }
+@keyframes floatBlob {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(-150px) translateX(150px);
+  }
+}
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin-left: 30px;
-      font-size: 14px;
-      opacity: 0.8;
-      transition: 0.3s;
-    }
+/* NAVBAR */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 80px;
+}
 
-    nav a:hover {
-      opacity: 1;
-      color: var(--neon);
-      text-shadow: 0 0 10px var(--neon);
-    }
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+}
 
-    /* Instagram */
-    .instagram-link img {
-      width: 20px;
-      height: 20px;
-      margin-left: 30px;
-      filter: drop-shadow(0 0 8px var(--neon));
-      transition: 0.4s;
-    }
+.logo span {
+  color: var(--neon);
+  text-shadow: 0 0 15px var(--neon);
+}
 
-    .instagram-link img:hover {
-      transform: rotate(10deg) scale(1.3);
-      filter: drop-shadow(0 0 16px var(--neon));
-    }
+nav {
+  display: flex;
+  align-items: center;
+}
 
-    /* HERO */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 60px 80px;
-      gap: 60px;
-    }
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
 
-    .hero-text {
-      max-width: 600px;
-      animation: slideLeft 1.2s ease;
-    }
+nav a:hover {
+  opacity: 1;
+  color: var(--neon);
+}
 
-    @keyframes slideLeft {
-      from { transform: translateX(-60px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
+/* Instagram */
+.instagram-link img {
+  width: 20px;
+  margin-left: 30px;
+  filter: drop-shadow(0 0 10px var(--neon));
+}
 
-    .hero-text h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 56px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+  gap: 60px;
+}
 
-    .hero-text h1 span {
-      color: var(--neon);
-      animation: neonPulse 1.5s infinite alternate;
-    }
+.hero-text {
+  max-width: 600px;
+}
 
-    @keyframes neonPulse {
-      from { text-shadow: 0 0 10px var(--neon); }
-      to { text-shadow: 0 0 25px var(--neon); }
-    }
+.hero-text h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 56px;
+}
 
-    .hero-text h3 {
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: var(--muted);
-      margin-bottom: 30px;
-    }
+.hero-text h1 span {
+  color: var(--neon);
+  text-shadow: 0 0 25px var(--neon);
+}
 
-    .hero-text p {
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 40px;
-      max-width: 520px;
-    }
+.hero-text h3 {
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin: 20px 0;
+}
 
-    /* BUTTONS */
-    .buttons {
-      display: flex;
-      gap: 20px;
-    }
+.hero-text p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
 
-    .btn {
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-size: 14px;
-      cursor: pointer;
-      border: 1px solid var(--neon);
-      background: transparent;
-      color: var(--neon);
-      transition: 0.4s;
-    }
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 20px;
+}
 
-    .btn.primary {
-      background: var(--neon);
-      color: #000;
-      box-shadow: 0 0 20px rgba(255, 0, 79, 0.6);
-    }
+.btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: 1px solid var(--neon);
+  background: transparent;
+  color: var(--neon);
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 0 35px rgba(255, 0, 79, 1);
-    }
+.btn.primary {
+  background: var(--neon);
+  color: #000;
+  box-shadow: 0 0 25px rgba(255,0,79,0.8);
+}
 
-    /* IMAGE */
-    .hero-image {
-      position: relative;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #ff004f, #80002a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 60px rgba(255, 0, 79, 0.8);
-      animation: float 3s ease-in-out infinite;
-    }
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(255,0,79,1);
+}
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0); }
-    }
+/* IMAGE */
+.hero-image {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff004f, #80002a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 80px rgba(255,0,79,1);
+  animation: floatImage 4s ease-in-out infinite;
+}
 
-    .hero-image img {
-      width: 90%;
-      height: 90%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
+@keyframes floatImage {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0); }
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      header, .hero {
-        padding: 30px;
-      }
+.hero-image img {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
-  </style>
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+  }
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">PORT<span>FOLIO</span></div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Projects</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+<!-- 🌌 BACKGROUND -->
+<div class="background">
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <div class="blob"></div>
+</div>
 
-      <a href="https://www.instagram.com/salespagedeveloper?igsh=YW1xa3FpajIxazhi" 
-         target="_blank" 
-         class="instagram-link">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      </a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">PORT<span>FOLIO</span></div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="https://www.instagram.com/salespagedeveloper?igsh=YW1xa3FpajIxazhi" target="_blank" class="instagram-link">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+    </a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>CODE THE FUTURE<br><span>WITH NEON</span></h1>
-      <h3>FRONTEND DEVELOPER & UI DESIGNER</h3>
-      <p>
-        I create immersive digital experiences that blend cutting-edge technology
-        with stunning visuals. My passion is turning complex ideas into intuitive
-        interfaces that captivate users and push boundaries.
-      </p>
-      <div class="buttons">
-        <button class="btn primary">🚀 View Projects</button>
-        <button class="btn">✈ Contact Me</button>
-      </div>
+<section class="hero">
+  <div class="hero-text">
+    <h1>CODE THE FUTURE<br><span>WITH NEON</span></h1>
+    <h3>FRONTEND DEVELOPER & UI DESIGNER</h3>
+    <p>
+      I create immersive digital experiences that blend cutting-edge technology
+      with stunning visuals.
+    </p>
+    <div class="buttons">
+      <button class="btn primary">🚀 View Projects</button>
+      <button class="btn">✈ Contact Me</button>
     </div>
+  </div>
 
-    <div class="hero-image">
-      <img src="https://images.unsplash.com/photo-1614289371518-722f2615943d" alt="Profile">
-    </div>
-  </section>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1614289371518-722f2615943d">
+  </div>
+</section>
 
 </body>
 </html>
